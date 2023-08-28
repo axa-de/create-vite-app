@@ -1,6 +1,6 @@
 {
   "name": "@axa-de/create-vite-project",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tool to quickly scaffold vite based projects.",
   "main": "index.js",
   "author": "christoph.rath@valtech.com",
