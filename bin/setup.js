@@ -15,7 +15,6 @@ async function getUserInput () {
     { type: 'input', name: 'authorEmail', message: 'Enter author email:' },
     { type: 'list', name: 'framework', message: 'Choose a framework:', choices: ['lit', 'react'] },
     { type: 'confirm', name: 'storybook', message: 'Install Storybook?', default: false },
-    { type: 'confirm', name: 'useSCSS', message: 'Use SCSS?', default: true },
     { type: 'confirm', name: 'useTypeScript', message: 'Use TypeScript?', default: false }
   ])
 }
@@ -55,6 +54,7 @@ function execPromise (command, dir) {
 async function additionalSetup (projectPath, choices) {
   if (choices.storybook) {
     await execPromise('npx sb init', projectPath)
+    await execPromise('yarn add @storybook/cli -D', projectPath)
   }
   // Add any other additional setup tasks here, e.g., npm install
 }

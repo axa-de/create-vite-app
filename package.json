@@ -1,5 +1,5 @@
 {
-  "name": "@axa-de/create-vite-project",
+  "name": "@axa-de/create-vite-app",
   "version": "1.0.1",
   "description": "A tool to quickly scaffold vite based projects.",
   "main": "index.js",
