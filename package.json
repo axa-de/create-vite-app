@@ -1,0 +1,16 @@
+{
+  "name": "create-vite-project",
+  "version": "1.0.0",
+  "description": "A tool to quickly scaffold vite based projects.",
+  "main": "index.js",
+  "author": "christoph.rath@valtech.com",
+  "license": "ISC",
+  "type": "module",
+  "bin": {
+    "create-vite-app": "bin/index.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "inquirer": "^9.2.10"
+  }
+}
