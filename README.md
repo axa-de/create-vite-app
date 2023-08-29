@@ -18,18 +18,42 @@ A simple CLI tool that automates the creation of new projects using Vite with an
 
 ## Installation
 
-You can install the CLI tool globally with:
+Given that this package is hosted on GitHub Package Registry under a scope, you'll need to set up npm to use GitHub's registry for scoped packages:
 
-```bash
-npm install -g your-package-name
-```
+1. **Option A**: Use an `.npmrc` file:
+
+    - Create an `.npmrc` file in your project's root (or in your home directory for global settings).
+    - Add the following lines to the `.npmrc`:
+
+      ```
+      @my-scope:registry=https://npm.pkg.github.com
+      //npm.pkg.github.com/:_authToken=YOUR_PERSONAL_ACCESS_TOKEN
+      ```
+
+   Replace `YOUR_PERSONAL_ACCESS_TOKEN` with your GitHub personal access token. Ensure it has the `read:packages` scope.
+
+    - Save the file.
+
+2. **Option B**: Authenticate using the command line:
+
+   ```bash
+   npm login --registry=https://npm.pkg.github.com --scope=@axa-de
+   ```
+
+   Provide your GitHub username, personal access token, and email address.
+
+3. Install the CLI tool globally:
+
+   ```bash
+   npm install -g @axa-de/create-vite-app
+   ```
 
 ## Usage
 
 Run the CLI tool with:
 
 ```bash
-npx create-vite-project
+npx @axa-de/create-vite-app
 ```
 
 Follow the prompts to configure your project.
@@ -46,3 +70,6 @@ Follow the prompts to configure your project.
 
 If you find a bug or have an idea for an improvement, feel free to open an issue or a pull request.
 
+---
+
+Make sure to be careful with the `.npmrc` file, especially if it contains your personal access token. If you're adding it to a project, **do not commit this file** to public repositories, as others will have access to your token.
