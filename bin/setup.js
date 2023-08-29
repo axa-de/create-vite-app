@@ -59,21 +59,27 @@ async function updatePackageJson (projectPath, choices) {
   await fs.writeFile(packageJsonPath, packageJsonContent, 'utf-8')
 }
 
-function execPromise (command, dir) {
+function execPromise(command, dir, envVariables = {}) {
   return new Promise((resolve, reject) => {
-    exec(command, { cwd: dir }, (error, stdout, stderr) => {
+    const env = Object.assign({}, process.env, envVariables);
+    exec(command, { cwd: dir, env: env }, (error, stdout, stderr) => {
       if (error) {
-        reject(error)
-        return
+        console.error("Error executing command:", error);
+        reject(error);
+        return;
       }
-      resolve(stdout)
-    })
-  })
+      resolve(stdout);
+    });
+  });
 }
 
 async function additionalSetup (projectPath, choices) {
   if (choices.storybook) {
-    await execPromise('npx sb@latest init', projectPath)
+    const envVariables = {
+      CI: 'true',
+      IN_STORYBOOK_SANDBOX: 'true'
+    };
+    await execPromise('npx sb@latest init', projectPath, envVariables)
   }
   updatePackageJsonAfterSBInit(projectPath, choices)
 }
