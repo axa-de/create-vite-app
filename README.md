@@ -26,7 +26,7 @@ Given that this package is hosted on GitHub Package Registry under a scope, you'
     - Add the following lines to the `.npmrc`:
 
       ```
-      @my-scope:registry=https://npm.pkg.github.com
+      @axa-de:registry=https://npm.pkg.github.com
       //npm.pkg.github.com/:_authToken=YOUR_PERSONAL_ACCESS_TOKEN
       ```
 
